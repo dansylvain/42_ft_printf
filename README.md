@@ -62,3 +62,5 @@ int main() {
     return 0;
 }
 ```
+
+Make good use of ft_printf! 🖨️
