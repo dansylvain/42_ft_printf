@@ -13,7 +13,7 @@ This project aims to provide a reliable and efficient alternative to the standar
 To use the "ft_printf" function in your project, clone the repository containing the necessary files from GitHub:
 
 ```bash
-git clone <https://github.com/dansylvain/42_ft_printf>
+git clone https://github.com/dansylvain/42_ft_printf ft_printf
 ```
 ### Compiling Your Program
 Navigate to the project directory and compile your program using the Makefile:
@@ -23,6 +23,28 @@ make
 ```
 ## Dependencies
 My implementation of the "ft_printf" project includes all necessary dependencies within the source code, requiring no additional installations.
+
+## Adding "ft_printf" as a Dependency
+
+To add "ft_printf" as a dependency in your project, follow these steps:
+
+* Copy the "ft_printf" directory into your project directory, or specify its location in your project's Makefile.
+* Modify your project's Makefile to include rules for compiling "ft_printf" along with your project. Here's an example of how to do it:
+
+```make
+FT_PRINTF_DIR = path/to/ft_printf
+
+$(NAME): $(OBJ) $(FT_PRINTF_DIR)/ft_printf.a
+    gcc -o $(NAME) $(OBJ) -L$(FT_PRINTF_DIR) -lftprintf
+
+$(LIBFT_DIR)/ft_printf.a:
+    make -C $(FT_PRINTF_DIR)
+```
+> [!IMPORTANT]
+> Replace path/to/libft with the actual path to the "libft" directory in your project.
+* Update your project's compilation rules to ensure that "libft" is compiled before your project.
+
+
 ## Using the Function
 Once compiled successfully, you can use the "ft_printf" function in your program to print formatted output to the console or a file stream. Ensure that you include the necessary header file in your source code:
 ```bash
